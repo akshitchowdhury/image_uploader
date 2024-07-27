@@ -8,7 +8,11 @@ const cors = require("cors");
 const port = 3000;
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3001', // replace with your frontend's origin
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  }));
 app.use(express.json());
 
 // Connect to MongoDB
